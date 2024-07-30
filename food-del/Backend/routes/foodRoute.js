@@ -13,7 +13,7 @@ const upload=multer({storage:storage});
 
 route.post('/add',upload.single("image"),Food.addFood)
 route.get('/list',Food.listFood)
-route.delete('/delete',Food.deleteFood)
+route.delete('/delete/:id',Food.deleteFood)
 
 
 module.exports = route

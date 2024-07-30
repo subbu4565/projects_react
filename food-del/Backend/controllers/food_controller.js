@@ -1,6 +1,6 @@
 const food_model=require('../models/food_model');
 const fs = require('fs');
-const mongoose=require('mongoose');
+
 
 exports.addFood = async (req,res) => {
     let fileName=req.file.filename
@@ -32,9 +32,7 @@ exports.listFood = async (req,res) => {
             res.json({
                 success: true,
                 message:"Found Successfully",
-                data:{
-                    foods:foods
-                }
+                data:foods
             })
         }
         catch(err){
@@ -48,13 +46,14 @@ exports.listFood = async (req,res) => {
 
 exports.deleteFood = async (req,res) => {
         try{
-            const image=await food_model.findById(req.body.id)
+            const data=await food_model.findById(req.params.id)
+            const image=data.image
             fs.unlink(`./uploads/${image}`, err => {
                 if(err){
                     console.log(err)
                 }
             })
-            await food_model.findByIdAndDelete(req.body.id)
+            await food_model.findByIdAndDelete(req.params.id);
             res.json({
                 success: true,
                 message:"Deleted Successfully",

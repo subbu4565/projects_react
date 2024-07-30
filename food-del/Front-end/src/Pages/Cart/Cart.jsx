@@ -6,7 +6,7 @@ import './Cart.css'
 
 
 export default function Cart() {
-    const { food_list, cartItems, removeFromCart,totalCartItemAmount } = useContext(StoreContext)
+    const { food_list, cartItems, removeFromCart,totalCartItemAmount,url } = useContext(StoreContext)
     const navigate = useNavigate()
     return (
         <div className="cart">
@@ -26,7 +26,7 @@ export default function Cart() {
                         return (
                             <div>
                                 <div className=" cart-items-title cart-items-data" key={index}>
-                                    <img src={item.image} alt="" />
+                                    <img src={url+"/uploads/"+item.image} alt="" />
                                     <p>{item.name}</p>
                                     <p>${item.price}</p>
                                     <p>{cartItems[item._id]}</p>
