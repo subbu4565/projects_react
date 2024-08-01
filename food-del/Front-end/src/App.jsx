@@ -9,6 +9,8 @@ import {useState} from "react";
 import Login from "./Components/Login/Login.jsx";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Verify from "./Pages/Verify/Verify.jsx";
+import MyOrders from "./Pages/Myorders/MyOrders.jsx";
 
 function App() {
 
@@ -24,6 +26,8 @@ function App() {
                   <Route path="/" element={<Home/>}/>
                   <Route path="/cart" element={<Cart/>}/>
                   <Route path={'/order'} element={<PlaceOrder/>}/>
+                  <Route path={'/verify'} element={<Verify/>}/>
+                  <Route path={'/myorders'} element={<MyOrders/>}/>
               </Routes>
               <Footer/>
 

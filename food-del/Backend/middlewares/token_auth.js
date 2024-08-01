@@ -7,9 +7,7 @@ const token_auth = (req, res, next) => {
     }
     try{
         const token_decode = jwt.verify(token, process.env.JWT_SECRET);
-        console.log(token);
         req.body.userId=token_decode.id;
-        console.log(req.body.userId);
         next()
     }
     catch(err){

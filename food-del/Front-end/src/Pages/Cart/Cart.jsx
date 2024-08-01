@@ -24,8 +24,8 @@ export default function Cart() {
                 {food_list.map((item, index) => {
                     if (cartItems[item._id] > 0) {
                         return (
-                            <div>
-                                <div className=" cart-items-title cart-items-data" key={index}>
+                            <div key={item._id}>
+                                <div className=" cart-items-title cart-items-data" >
                                     <img src={url+"/uploads/"+item.image} alt="" />
                                     <p>{item.name}</p>
                                     <p>${item.price}</p>
